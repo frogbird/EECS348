@@ -118,6 +118,17 @@ data4 = ("009000400"
 "020005004"
 "005000900")
 
+data5 = ("000000000"
+"000000000"
+"000000000"
+"000000000"
+"000000000"
+"000000000"
+"000000000"
+"000000000"
+"000000000")
+
+
 print ("Board 1")
 exp1 = run_experiment(data1, 35000, 4000, 2500)
 print ("Board 2")
@@ -126,8 +137,11 @@ print ("Board 3")
 exp3 = run_experiment(data3, 40000, 4500, 300)
 print ("Board 4")
 exp4 = run_experiment(data4, 6000, 800, 650)
+print ("Board 5")
+exp5 = run_experiment(data5, 100000, 100000, 10000)
 
-all_passed = exp1 and exp2 and exp3 and exp4 
+
+all_passed = exp1 and exp2 and exp3 and exp4 and exp5
 
 
 if all_passed:

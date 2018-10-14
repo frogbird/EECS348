@@ -12,7 +12,7 @@ def print_sudoku(sudoku):
 		v=""
 		for x in range(9):
 			v+=str(sudoku[y][x]);
-		printf(v)
+		print(v)
 
 def can_yx_be_z(sudoku, y, x, z):
 	for i in range(9):

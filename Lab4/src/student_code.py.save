@@ -1,0 +1,75 @@
+import common
+
+class variables:
+	counter=0
+
+def sudoku_backtracking(sudoku):
+	# PUT YOUR CODE HERE
+	# access the sudoku using "sudoku[y][x]"
+	# y between 0 and 9
+	# x between 0 and 9
+	# function must return the number of permutations performed
+	# the use of variables.counter to keep track of the worlds 
+	# explored is optional but recommended 
+	variables.counter=0
+	# variables.counter+=1000000
+
+	stack = [sudoku]
+	numbers = set([1, 2, 3, 4, 5, 6, 7, 8, 9])
+	
+	while(len(stack) > 0):
+		current_board = stack.pop()
+		variables.counter += 1
+		complete = True
+		# Check rows
+		if(complete):
+			for i in range(0,9):
+				row = set(sudoku[i])
+				if(row == numbers):
+					print True
+				if(row != numbers):
+					complete = False
+		if(complete):
+			for i in range(0,9):
+				column = set([x[i] for x in sudoku[i]])
+				if(column != numbers):
+					complete = False
+		if(complete):
+			break
+
+		# Check if board is viable
+		# if board is not viable, stop
+
+		for y in range(0, 9):
+			for x in range(0,9):
+				if(current_board[y][x] == 0):
+					for z in range(1, 10):
+						if(common.can_yx_be_z(current_board, y, x, z)):
+							new_board = [q[:] for q in current_board]
+							new_board[y][x] = z
+							stack.append(new_board)
+	return variables.counter
+
+def sudoku_forwardchecking(sudoku):
+	# PUT YOUR CODE HERE
+	# access the sudoku using "sudoku[y][x]"
+	# y between 0 and 9
+	# x between 0 and 9
+	# function must return the number of permutations performed
+	# the use of variables.counter to keep track of the worlds 
+	# explored is optional but recommended 
+	variables.counter=0
+	variables.counter+=1000000
+	return variables.counter
+
+def sudoku_mrv(sudoku):
+	# PUT YOUR CODE HERE
+	# access the sudoku using "sudoku[y][x]"
+	# y between 0 and 9
+	# x between 0 and 9
+	# function must return the number of permutations performed
+	# the use of variables.counter to keep track of the worlds 
+	# explored is optional but recommended 
+	variables.counter=0
+	variables.counter+=1000000
+	return variables.counter
